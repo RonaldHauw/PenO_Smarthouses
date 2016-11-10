@@ -32,7 +32,8 @@ def room(request,id):
 def test(request):
     template = loader.get_template('neighbourhood/test.html')
     return HttpResponse(template.render(request))
-def userhomepage(request):
-    template = loader.get_template(('neighbourhood/cover.css'))
+
+def Demo_homepage(request):
+    template = loader.get_template('neighbourhood/demo_homepage.html')
     return HttpResponse(template.render(request))
 
