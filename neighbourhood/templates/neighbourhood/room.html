@@ -1,17 +1,8 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{% extends "neighbourhood/usertemplate.html" %}
+
+{% block title %}Smart Energy House | Room {{ room.id }}{% endblock %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Room</title>
-</head>
-<body>
+{% block topheader %}Dit is mijn  {{ room.name }}{% endblock %}
 
- <h1> {{  room.name }}</h1>
-        <h2> This is a room in {{room.house.name }}</h2>
-</body>
-</html>
-
+{% block topheader_content %}Ik hoor bij <a href="{%  url "House" room.house.id %}">{{ room.house.name }}</a> {% endblock %}

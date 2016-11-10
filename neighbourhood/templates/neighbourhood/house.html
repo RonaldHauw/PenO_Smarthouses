@@ -1,17 +1,15 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{% extends "neighbourhood/usertemplate.html" %}
+
+{% block title %}Smart Energy House | House {{ house.id }}{% endblock %}
+
+{% block topheader %}Welkom bij House {{ house.id }}{% endblock %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Smarthouses </title>
-</head>
-<body>
-
- <h1> {{  house.name }}</h1>
-        <h2> This is a house in {{house.neighbourhood.name }}</h2>
-
-</body>
-</html>
+{% block topheader_content %}
+    My rooms are:
+    <ul>
+    {% for room in house.room_set.all %}
+        <li><a href="{% url "Room" room.id %}">{{ room.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
