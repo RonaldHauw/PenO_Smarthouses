@@ -37,3 +37,10 @@ def Demo_homepage(request):
     template = loader.get_template('neighbourhood/demo_homepage.html')
     return HttpResponse(template.render(request))
 
+def contact(request):
+    template = loader.get_template('neighbourhood/contact_page.html')
+    return HttpResponse(template.render(request))
+
+def demo_uitleg(request):
+    template = loader.get_template('neighbourhood/Demo_uitleg.html')
+    return HttpResponse(template.render(request))
