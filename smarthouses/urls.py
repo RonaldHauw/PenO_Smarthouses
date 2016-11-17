@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^$',view.index,name = 'Index'),
     url(r'^neighbourhood/', include('neighbourhood.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^demo/',include('Demopage.urls'))
+    url(r'^demo/',include('Demopage.urls')),
+    url(r'^centralcontrol/',include('CentralControl.urls'))
 
 
 

@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-url(r'^$',views.indexcentralcontrol, name='IndexCentralControl'),
+url(r'^$/',views.indexcentralcontrol, name='IndexCentralControl'),
 url(r'^testinterface',views.testinterface, name='testinterface'),
 
 

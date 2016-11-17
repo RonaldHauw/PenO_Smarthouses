@@ -14,6 +14,7 @@ def indexcentralcontrol(request):
     return HttpResponse(template.render(request))
 
 def testinterface(request):
-    pass
+    template = loader.get_template('testinterface.html')
+    return HttpResponse(template.render(request))
 
 
