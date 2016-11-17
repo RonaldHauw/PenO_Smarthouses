@@ -26,5 +26,9 @@ def Root(request):
     template = loader.get_template('Index.html')
     return HttpResponse(template.render(request))
 
+def user_homepage(request):
+    template = loader.get_template('neighbourhood/indexneighbourhood.html')
+    return HttpResponse(template.render(request))
+
 
 

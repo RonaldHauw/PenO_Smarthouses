@@ -6,7 +6,8 @@ urlpatterns = [
     url(r'^$', views.Demo_homepage, name='Demo_homepage'),
     url(r'^Uitleg',views.demo_uitleg,name='Demo_uitleg'),
     url(r'^contact',views.contact,name='Contact_page'),
-    url(r'^root',views.Root,name='Root')
+    url(r'^root',views.Root,name='Root'),
+    url(r'^ ', views.user_homepage, name='User_homepage')
 
 ]
 

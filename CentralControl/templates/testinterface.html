@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,10 +82,10 @@
       <div class="page-header">
         <h1>Send Some information</h1>
       </div>
-      <p>
-        <button type="button" ,href={% url test 100 20 %}class="btn btn-lg btn-default">Stuur een boodschap</button>
-        <!--<button type="button" class="btn btn-lg btn-primary">Primary</button>
-        <button type="button" class="btn btn-lg btn-success">Success</button>
+      <p> <!-- ,href= 'test 100 20' -->
+        <button type="button" class="btn btn-lg btn-default">Stuur een boodschap</button>
+        <button type="button" href="{% url "functiontest" %}" class="btn btn-lg btn-primary">Roep een functie op</button>
+        <button type="button" onclick="" class="btn btn-lg btn-success">Scroll</button><!--
         <button type="button" class="btn btn-lg btn-info">Info</button>
         <button type="button" class="btn btn-lg btn-warning">Warning</button>
         <button type="button" class="btn btn-lg btn-danger">Danger</button>
@@ -117,7 +118,7 @@
         <button type="button" class="btn btn-xs btn-danger">Danger</button>
         <button type="button" class="btn btn-xs btn-link">Link</button>-->
       </p>
-
+<p>{{ 'models.Testbalkjes.volume' }}</p>
 
       <!--<div class="page-header">
         <h1>Tables</h1>
@@ -260,12 +261,12 @@
       </div> -->
 
 
-      <div class="page-header">
+     <!-- <div class="page-header">
         <h1>Thumbnails</h1>
       </div>
       <img data-src="holder.js/200x200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
-
-
+-->
+<!--
       <div class="page-header">
         <h1>Labels</h1>
       </div>
@@ -326,7 +327,7 @@
         <span class="label label-danger">Danger</span>
       </p>
 
-
+--> <!--
       <div class="page-header">
         <h1>Badges</h1>
       </div>
@@ -338,7 +339,7 @@
         <li role="presentation"><a href="#">Profile</a></li>
         <li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
       </ul>
-
+--><!--
 
       <div class="page-header">
         <h1>Dropdown menus</h1>
@@ -354,7 +355,7 @@
         </ul>
       </div>
 
-
+--><!--
       <div class="page-header">
         <h1>Navs</h1>
       </div>
@@ -403,9 +404,9 @@
                 </ul>
               </li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div><!--/.nav-collapse --><!--
         </div>
-      </nav>
+      </nav>--><!--
 
       <nav class="navbar navbar-inverse">
         <div class="container">
@@ -436,9 +437,10 @@
                 </ul>
               </li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div><!--/.nav-collapse --><!--
         </div>
-      </nav>
+      </nav>-->
+
 
 
       <div class="page-header">
@@ -463,9 +465,9 @@
       </div>
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60% Complete</span></div>
-      </div>
+      </div><!--
       <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">{{ models.Testbalkjes.volume }} Complete (success)</span></div>
       </div>
       <div class="progress">
         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
@@ -483,7 +485,7 @@
         <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only">35% Complete (success)</span></div>
         <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only">20% Complete (warning)</span></div>
         <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only">10% Complete (danger)</span></div>
-      </div>
+      </div>-->
 
 
       <div class="page-header">

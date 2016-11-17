@@ -23,3 +23,6 @@ class Room(models.Model):
 
     def __str__(self):
         return self.name
+
+class TestBalkjes(models.Model):
+    volume = models.IntegerField()
