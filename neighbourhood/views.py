@@ -5,12 +5,6 @@ from django.http import HttpResponse
 from django.template import loader
 from models import House,Room
 
-def index(request):
-
-    #return HttpResponse("Welcome to the demo.")
-
-    template = loader.get_template('neighbourhood/index.html')
-    return HttpResponse(template.render(request))
 
 def house(request,id):
 
@@ -29,18 +23,9 @@ def room(request,id):
     return HttpResponse(template.render(context,request))
 
 
-def test(request):
-    template = loader.get_template('neighbourhood/test.html')
+
+def indexneighbourhood(request):
+    template = loader.get_template('neighbourhood/indexneighbourhood.html')
     return HttpResponse(template.render(request))
 
-def Demo_homepage(request):
-    template = loader.get_template('neighbourhood/demo_homepage.html')
-    return HttpResponse(template.render(request))
 
-def contact(request):
-    template = loader.get_template('neighbourhood/contact_page.html')
-    return HttpResponse(template.render(request))
-
-def demo_uitleg(request):
-    template = loader.get_template('neighbourhood/Demo_uitleg.html')
-    return HttpResponse(template.render(request))
