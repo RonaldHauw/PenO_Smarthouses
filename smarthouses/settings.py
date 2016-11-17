@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'neighbourhood.apps.NeighbourhoodConfig',
+    'Demopage.apps.DemoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'neighbourhood.urls'
+ROOT_URLCONF = 'smarthouses.urls'
 
 TEMPLATES = [
     {

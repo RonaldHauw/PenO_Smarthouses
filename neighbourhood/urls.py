@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^Demo_uitleg',views.demo_uitleg,name='Demo_uitleg'),
     url(r'^contact',views.contact,name='Contact_page')
 
+
 ]
 
