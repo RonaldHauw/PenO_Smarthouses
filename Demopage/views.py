@@ -31,4 +31,10 @@ def user_homepage(request):
     return HttpResponse(template.render(request))
 
 
+def tocentralcontrol(request):
+    template = loader.get_template('indexcentralcontrol.html')
+    return HttpResponse(template.render(request))
+
+
+
 

@@ -26,3 +26,5 @@ class Room(models.Model):
 
 class TestBalkjes(models.Model):
     volume = models.IntegerField()
+    def __str__(self):
+        return self.volume
