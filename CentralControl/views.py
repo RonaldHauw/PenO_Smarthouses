@@ -18,3 +18,6 @@ def testinterface(request):
     return HttpResponse(template.render(request))
 
 
+def handmatig(request):
+    template = loader.get_template('Handmatig.html')
+    return HttpResponse(template.render(request))

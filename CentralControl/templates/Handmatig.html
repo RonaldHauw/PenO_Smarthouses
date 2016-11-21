@@ -50,9 +50,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">Autorun</a></li>
-                <li><a href="#contact">Handmatig</a></li>
+                <li><a class ="active">Handmatig</a></li>
                   <li ><a >Spel</a></li>
                 <!--<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -77,9 +77,9 @@
 
 
     <!-- Carousel
-    ================================================== -->
+    ==================================================
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+      <!-- Indicators
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -102,7 +102,7 @@
             <div class="carousel-caption">
               <h1>Doe-het-zelf</h1>
               <p>Bestuur je verbruik op het moment zelf.</p>
-              <p><a class="btn btn-lg btn-primary" href="{% url "handmatig" %}" role="button">Leer meer</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer meer</a></p>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
       </a>
     </div><!-- /.carousel -->
 
-
+<div class="btn btn-lg" onclick=location.href('{% url 'testinterface' %}')>Naar testinterface</div>
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->

@@ -9,6 +9,7 @@ urlpatterns = [
 url(r'^$',views.indexcentralcontrol, name='IndexCentralControl'),
 url(r'^testinterface',views.testinterface, name='testinterface'),
 url(r'^functiontest',aux.functiontest, name='functiontest'),
+url(r'^doityourself',views.handmatig, name='handmatig'),
 
 
 
