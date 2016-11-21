@@ -7,8 +7,8 @@ urlpatterns = [
     url(r'^Uitleg',views.demo_uitleg,name='Demo_uitleg'),
     url(r'^contact',views.contact,name='Contact_page'),
     url(r'^root',views.Root,name='Root'),
-    url(r'^ ', views.user_homepage, name='User_homepage'),
-    url(r'^tocentralcontrol',views.tocentralcontrol,name="ToCentralControl")
+    url(r'^User', views.user_homepage, name='User_homepage'),
+    url(r'^CentralControl',views.centralcontrol,name="ToCentralControl"),
 
 ]
 
