@@ -143,3 +143,31 @@ body {
 #vspace{
   margin-top: 3cm;
 }
+#firstcentral{
+  opacity: 0.4;
+}
+#secondcentral{
+  opacity: 0.4;
+}
+#thirdcentral{
+  opacity: 0;
+}
+
+#titelhuis1{
+    position: relative;
+    margin-top: 2.5cm;
+    margin-left: 1cm;
+    font-size: 1cm;
+  }
+
+#010101{
+  margin-left: 1cm;
+}
+
+#010102{
+  margin-left: 1cm;
+}
+
+#010103{
+  margin-left: 1cm;
+}

@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{% static "images/icoon.png" %}">
 
-    <title>Theme Template for Bootstrap</title>
+    <title>TESTINTERFACE SMART ENERGY HOUSES</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -80,12 +80,17 @@
 
 
       <div class="page-header">
-        <h1>Send Some information</h1>
+        <h1>TEST 1 de ledjes</h1>
       </div>
       <p> <!-- ,href= 'test 100 20' -->
-        <button type="button" class="btn btn-lg btn-default">Stuur een boodschap</button>
-        <button type="button" href="{% url "functiontest" %}" class="btn btn-lg btn-primary">Roep een functie op</button>
-        <button type="button" onclick="" class="btn btn-lg btn-success">Scroll</button><!--
+        <button type="button"  class="btn btn-lg btn-danger" onclick=location.href='{% url 'ledaan' %}'>Laat led branden</button>
+        <button type="button"  class="btn btn-lg btn-default" onclick=location.href='{% url 'leduit' %}'>doe led terug uit</button>
+          <div></div>
+          <button type="button"  class="btn btn-lg btn-danger" onclick=location.href='{% url 'led2aan' %}'>Laat led2 branden</button>
+        <button type="button"  class="btn btn-lg btn-default" onclick=location.href='{% url 'led2uit' %}'>doe led2 terug uit</button>
+          <button type="button"  class="btn btn-lg btn-danger" onclick=location.href='{% url 'led2fel' %}'>Laat led2 helder worden</button>
+        <button type="button"  class="btn btn-lg btn-default" onclick=location.href='{% url 'led2zwak' %}'>doe led2 verdonkeren</button>
+          <!--
         <button type="button" class="btn btn-lg btn-info">Info</button>
         <button type="button" class="btn btn-lg btn-warning">Warning</button>
         <button type="button" class="btn btn-lg btn-danger">Danger</button>
