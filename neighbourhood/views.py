@@ -11,12 +11,11 @@ from models import House,Room
 
 from django.template.response import TemplateResponse
 
-def house(request,id):
+def house(request,house_id):
 
-    all_houses = House.objects.all()
     template = loader.get_template('neighbourhood/house.html')
     context = {
-        'house': House.objects.get(id=id)
+        'house': House.objects.get(id=house_id)
     }
     return TemplateResponse(request,template,context)
 
@@ -28,7 +27,7 @@ def room(request,id):
     }
     template = loader.get_template('neighbourhood/room.html')
    # return HttpResponse(template.render(context,request))
-    return TemplateResponse(request,'house/room.html',{"data": all_rooms})
+    return TemplateResponse(request,template,context)
 
 
 
