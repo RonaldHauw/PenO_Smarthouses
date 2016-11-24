@@ -20,11 +20,7 @@ import view
 
 
 urlpatterns = [
-<<<<<<< HEAD
-    url(r'^$',view.index, name = 'Index'),
-=======
-    url(r'^$', include('Index.urls')),
->>>>>>> 0a4a9af8228bafcecc4be88314efc3564472a858
+    url(r'^', include('Index.urls')),
     url(r'^neighbourhood/', include('neighbourhood.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^demo/',include('Demopage.urls')),
