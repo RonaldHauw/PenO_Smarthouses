@@ -46,24 +46,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Demo Smart Energy Houses</a>
+              <a class="navbar-brand" href={% url 'Demo_homepage' %}>Demo</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li ><a href={% url 'Demo_homepage' %}>Home</a></li>
-                <li><a href="#about">Learn more</a></li>
-                <li><a href="#contact">Discover Yourself</a></li>
-                  <li class="active"><a href="#contact">Demo opstelling</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <li class="active"><a href={% url 'Demo_uitleg' %}>Demo uitleg</a></li>
+                  <li><a href={% url 'Contact_page' %}>Contact</a></li>
+
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Project <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><a href="#">Database - Interface - Central Control</a></li>
+                    <li><a href="#">Elektronica - Communicatie - Optimalisatie</a></li>
+                    <li><a href="#">Encryptie</a></li>
+                  </ul>
+                      </li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigate <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href={% url 'Root' %}>Index</a></li>
+                      <li><a href={% url 'User_homepage' %}>User</a></li>
+                      <li class="active"><a href={% url 'Demo_homepage' %}>Demonstrator</a></li>
+                      <li><a href={% url 'ToCentralControl' %}>Central Control</a></li>
                   </ul>
                 </li>
               </ul>
@@ -82,8 +87,9 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Huisjes <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Slimme-energie woningen </h2>
+            <h3 class="text-muted">Red het milieu!</h3>
+          <p class="lead"> Vandaag de dag zijn kern- en gascentrales de hoofdleveranciers van energie, maar zijn ook zeer schadelijk voor het milieu. De mensheid staat voor de uitdaging om alleen nog maar afhankelijkte zijn van hernieuwbare energie. Maar hernieuwbare bronnen zijn niet goed bestemd tegen pieken in het stroomnet. Slimme energie woningen proberen dit probleem aan te pakken.  </p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
@@ -94,8 +100,8 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Vraagzijdesturing</h2>
+          <p class="lead"> Een slimme-energie <woning> </woning> is een woning die de energieconsumptie kan aansturen d.m.v. vraagzijdesturing. Het is een woning die zich informeert over de huidige energieproductie en zich hier op aanpast.  Hierbij is het gebruik van een Smart Grid aangewezen. Dit is een elektriciteitsnetwerk dat communicatie toelaat in twee richtingen. Zowel van leverancier naar gebruiker als van gebruiker naar leverancier. De uitwisseling van informatie tussen huis en leverancier of beheerder verloopt langs een beveiligde communicatielijn. </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
@@ -104,17 +110,6 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 

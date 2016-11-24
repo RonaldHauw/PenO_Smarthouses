@@ -48,19 +48,31 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Demo Smart Energy Houses</a>
+              <a class="navbar-brand" href={% url 'Demo_homepage' %}>Demo </a>
             </div>
+
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li ><a href={% url 'Demo_homepage' %}>Home</a></li>
-                <li><a href="#about">Learn more</a></li>
-                <li><a href="#contact">Discover Yourself</a></li>
-                  <li ><a href="#contact">Demo opstelling</a></li>
-                    <li class="active"><a href='{% url 'Contact_page' %}'>Contact</a></li>
+                <li><a href={% url 'Demo_uitleg' %}>Demo uitleg</a></li>
+                  <li class="active"><a href={% url 'Contact_page' %}>Contact</a></li>
 
-
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Project <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Database - Interface - Central Control</a></li>
+                    <li><a href="#">Elektronica - Communicatie - Optimalisatie</a></li>
+                    <li><a href="#">Encryptie</a></li>
 
                   </ul>
+                    </li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigate <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href={% url 'Root' %}>Index</a></li>
+                      <li><a href={% url 'User_homepage' %}>User</a></li>
+                      <li class="active"><a href={% url 'Demo_homepage' %}>Demonstrator</a></li>
+                      <li><a href={% url 'ToCentralControl' %}>Central Control</a></li>
                 </li>
               </ul>
             </div>

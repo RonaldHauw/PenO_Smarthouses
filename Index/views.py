@@ -8,6 +8,12 @@ import Demopage
 
 
 
-def Demo_homepage(request):
-    template = loader.get_template('demo/demo_homepage.html')
+def Index(request):
+    template = loader.get_template('index.html')
+    return HttpResponse(template.render(request))
+
+
+
+def ToCentralcontrol(request):
+    template = loader.get_template('indexcentralcontrol.html')
     return HttpResponse(template.render(request))

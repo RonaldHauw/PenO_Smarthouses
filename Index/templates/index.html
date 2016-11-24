@@ -1,7 +1,23 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head id="backgroundtest">
+      <script>
+//Array of images which you want to show: Use path you want.
+var images=new Array("{% static "images/foto06.jpg" %}");
+var nextimage=0;
+doSlideshow();
+
+function doSlideshow(){
+    if(nextimage>=images.length){nextimage=0;}
+    $('.global-header')
+    .css('background-image','url("'+images[nextimage++]+'")')
+    .fadeIn(500,function(){
+        setTimeout(doSlideshow,1000);
+    });
+}
+</script>
       <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
 
     <!-- Optional theme -->
@@ -53,6 +69,15 @@
 
 
       <div class="site-wrapper-inner">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+
+
+
+
+
+
+
 
         <div class="cover-container">
 
@@ -75,8 +100,9 @@
 
             <p class="lead">Discover anything about our smart energy houses project</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default" onclick=location.href='{% url 'Demo_homepage' %}'>I am a user</a>
-                <a href="#" class="btn btn-lg btn-default">Demonstrator</a>
+              <a  class="btn btn-lg btn-default" href="{% url 'User_homepage' %}">I am a user</a>
+                <a class="btn btn-lg btn-default" href='{% url 'Demo_homepage' %}'>Demonstrator</a>
+                <a class="btn btn-lg btn-default" href='{% url 'ToCentralControl' %}'>Central Control</a>
             </p>
           </div>
 
@@ -87,8 +113,13 @@
 
           </div>
 
-        </div>
 
+
+
+
+
+        </div>
+</div>
       </div>
 
     </div>
