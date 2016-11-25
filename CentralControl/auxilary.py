@@ -7,6 +7,34 @@ from models import House,Room
 from helpfunctions import *
 from Communicatie import *
 import time
+from neighbourhood.models import Smart_Devices
+
+
+def status(request, appliance_id, status):
+    app = Smart_Devices.objects.get(id=appliance_id)
+    room = app.room
+    house = room.house
+    message = '%d01%d' % (room.shortcut, status)
+    SendInformation('%s:8080' % house.ip, message)
+
+
+{
+    house_id: 1,
+    function: change_status,
+    target: (appliance, 1),
+    value: 100
+}
+#JSON
+{
+    house_id: 1,
+    [(function: change_status,
+    target: (appliance, 1),
+    value: 20),
+(function: change_status,
+           target: (appliance, 3),
+                   value: 100) # globaler afspraken maken en discussieren
+]
+}
 
 
 def ledaan(request):

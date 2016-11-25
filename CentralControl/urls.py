@@ -15,6 +15,7 @@ url(r'^led2uit', auxilary.led2uit, name='led2uit'),
 url(r'^led2fel', auxilary.led2fel, name='led2fel'),
 url(r'^led2zwak', auxilary.led2zwak, name='led2zwak'),
 
+url(r'^status/(?P<appliance_id>[0-9]+)/(?P<status>[0-9]+)$', auxilary.status, name='status'),
 
 url(r'^doityourself',views.handmatig, name='handmatig'),
 

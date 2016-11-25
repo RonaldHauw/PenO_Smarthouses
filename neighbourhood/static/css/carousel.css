@@ -156,11 +156,15 @@ body {
 #titel{
   text-align: center;
   font-size: 3cm;
+  margin-bottom: 3cm;
 }
 #apparaat{
   margin:1cm
 }
 #afbeelding{
-  width: 10cm;
-  height: 10cm;
+  width: 50%;
+
+}
+#knop{
+  margin-left: 1cm;
 }

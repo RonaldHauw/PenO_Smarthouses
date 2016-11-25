@@ -16,6 +16,8 @@ class House(models.Model):
 
     neighbourhood = models.ForeignKey(Neighbourhood)
 
+    ip = models.CharField(max_length=32) # 169.254.173.25
+
     def __str__(self):
         return self.name
 
@@ -62,8 +64,13 @@ class Smart_Devices(models.Model):
     description = models.TextField()
     room = models.ForeignKey(Room)
 
+
     def __str__(self):
         return self.name + '-' + self.room.name
+
+    def getStatus(self, timestamp):
+        self.tijdreeks# in django functionaliteit opzoeken
+
 
 ####################################################################################################
 ####################################################################################################
