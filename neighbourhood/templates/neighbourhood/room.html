@@ -1,11 +1,11 @@
 {% extends "neighbourhood/usertemplate.html" %}
 
-{% block title %}Slimme-energiewoningen| Kamer {{ room.id }}{% endblock %}
+{% block title %}Slimme-energiewoningen| {{ room.house.name }}{% endblock %}
 
 
 {% block topheader %}Dit is mijn  {{ room.name }}{% endblock %}
 
-{% block topheader_content %}Ik hoor bij huis <a href="{%  url "House" room.house.id %}">{{ room.house.id }}</a> {% endblock %}
+{% block topheader_content %}Ik hoor bij <a href="{%  url "House" room.house.id %}">{{ room.house.name }}</a> {% endblock %}
 
 {% block left_col %}
 <div class="col-md-4">
