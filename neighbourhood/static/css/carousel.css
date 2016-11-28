@@ -143,3 +143,28 @@ body {
 #vspace{
   margin-top: 3cm;
 }
+#firstcentral{
+  opacity: 0.4;
+}
+#secondcentral{
+  opacity: 0.4;
+}
+#thirdcentral{
+  opacity: 0;
+}
+
+#titel{
+  text-align: center;
+  font-size: 3cm;
+  margin-bottom: 3cm;
+}
+#apparaat{
+  margin:1cm
+}
+#afbeelding{
+  width: 50%;
+
+}
+#knop{
+  margin-left: 1cm;
+}
