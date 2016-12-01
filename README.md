@@ -1,1 +1,2 @@
-# Smarthouses
+# Smarthouses project team ESATA1
+

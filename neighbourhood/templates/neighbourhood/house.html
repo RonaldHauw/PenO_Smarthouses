@@ -5,9 +5,9 @@
 {% extends "neighbourhood/usertemplate.html" %}
 
 
-{% block title %}Slimme energiewoningen | Huis {{ house.id }}{% endblock %}
+{% block title %} Slimme energiewoningen | {{ house.name }}{% endblock %}
 
-{% block topheader %}Welkom bij Huis {{ house.id }}{% endblock %}
+{% block topheader %} Welkom bij Huis {{ house.id }}{% endblock %}
 
 
 {% block topheader_content %}
@@ -73,7 +73,7 @@ var myChart = new Chart(ctx, {
 
     <div class="col-md-4">
         <h2>Optimalisatie</h2>
-        <p>Opsomming van alternatieven voor efficiënter gebruik</p>
+        <p>Opsomming van alternatieven voor een efficiënter gebruik.</p>
         <p><a class="btn btn-default" href="#" role="button">Meer details &raquo;</a></p>
     </div>
 
@@ -83,7 +83,7 @@ var myChart = new Chart(ctx, {
 {% block right_col %}
     <div class="col-md-4">
         <h2>Besparing</h2>
-        <p>Hier komt een counter die vertelt hoeveel men bespaart door een geoptimaliseerd energiegebruik  </p>
+        <p>Hier komt een counter die vertelt hoeveel men door een geoptimaliseerd energiegebruik kan besparen.  </p>
 
         <div id="tab-one">TAB ONE</div>
 

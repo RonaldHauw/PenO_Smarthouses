@@ -4,7 +4,7 @@ from . import views
 import auxilary
 
 urlpatterns = [
-     url(r'^House/(?P<house_id>[0-9]+)$',views.house, name='House'),
+    url(r'^House/(?P<house_id>[0-9]+)$',views.house, name='House'),
     url(r'^room/(?P<id>[0-9]+)$',views.room, name='Room'),
     url(r'^$',views.indexneighbourhood, name='IndexNeighbourhood'),
     url(r'^CentralControl',views.centralcontrol,name="ToCentralControl"),
