@@ -59,7 +59,13 @@
           </button>
           <a class="navbar-brand" href="{% url "IndexNeighbourhood" %}">Slimme-energiewoningen</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href={% url 'House' 1 %}>Huis 1</a></li>
+                <li><a href={% url 'House' 2 %}>Huis 2</a></li>
+            </ul>
+
 
         </div><!--/.navbar-collapse -->
       </div>

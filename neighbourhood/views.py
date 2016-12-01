@@ -60,3 +60,16 @@ def centralcontrol(request):
 def Demo_homepage(request):
     template = loader.get_template('demo/demo_homepage.html')
     return HttpResponse(template.render(request))
+
+def indexcentralcontrol(request):
+    template = loader.get_template('indexcentralcontrol.html')
+    return HttpResponse(template.render(request))
+
+def testinterface(request):
+    template = loader.get_template('testinterface.html')
+    return HttpResponse(template.render(request))
+
+
+def handmatig(request):
+    template = loader.get_template('Handmatig.html')
+    return HttpResponse(template.render(request))

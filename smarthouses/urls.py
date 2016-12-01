@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^$', include('Index.urls')),
     url(r'^neighbourhood/', include('neighbourhood.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^demo/',include('Demopage.urls')),
-    url(r'^centralcontrol/',include('CentralControl.urls'))
+    url(r'^demo/',include('Demopage.urls'))
+
 
 
 

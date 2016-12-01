@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'neighbourhood.apps.NeighbourhoodConfig',
-    'CentralControl.apps.CentralControlConfig',
+
     'Demopage.apps.DemoConfig',
     'Index.apps.Indexconfig',
     'django.contrib.admin',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'smarthouses.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Demopage/templates','Index/templates','neighbourhood/templates','CentralControl/templates'],
+        'DIRS': ['Demopage/templates','Index/templates','neighbourhood/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

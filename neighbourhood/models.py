@@ -6,6 +6,7 @@ from django.db import models
 class Neighbourhood(models.Model):
 
     name = models.CharField(max_length=32)
+    ref_id = models.CharField(max_length = 32)
 
     def __str__(self):
         return self.name
@@ -13,10 +14,9 @@ class Neighbourhood(models.Model):
 class House(models.Model):
 
     name = models.CharField(max_length=32)
+    ref_id = models.CharField(max_length=32)
 
     neighbourhood = models.ForeignKey(Neighbourhood)
-
-    ip = models.CharField(max_length=32) # 169.254.173.25
 
     def __str__(self):
         return self.name
@@ -29,147 +29,64 @@ class Room(models.Model):
     house = models.ForeignKey(House)
 
     name = models.CharField(max_length=100)
-    #smart_devices = models.CharField(max_length=100, default=' ')
-    #EED = models.CharField(max_length=100, default=' ')
-    #ENED = models.CharField(max_length=100, default=' ')
-
+    ref_id = models.CharField(max_length=32)
     description = models.TextField()
 
     def __str__(self):
         return self.name + '-' + self.house.name
 
 ####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                          ROOM TYPES                                            ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
-#
-# energy efficient devices = EED
-# energy non efficient devices = ENED
-
-
-####################################################################################################
+#nummer pin en soort van een pin
 ####################################################################################################
 class Smart_Devices(models.Model):
 
     name = models.CharField(max_length=100)
-    #id = models.CharField(max_length=100)
+    ref_id = models.CharField(max_length=100)
     power = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=3,default=000)
     duration = models.CharField(max_length=100, default=0)
     deadline = models.CharField(max_length=100, default=0)
+    status_function = models.CharField(max_length=100, default=0)
+    optimal_status = models.CharField(max_length=100, default=0)
+
 
     description = models.TextField()
     room = models.ForeignKey(Room)
-
+    house = models.ForeignKey(House)
 
     def __str__(self):
         return self.name + '-' + self.room.name
 
-    def getStatus(self, timestamp):
-        self.tijdreeks# in django functionaliteit opzoeken
 
 
-####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                        Smart Devices                                           ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
-
-class Boiler(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-class Solar_BoIler(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-class Electric_Car(Smart_Devices):
-
-    percentage_battery = models.CharField(max_length=100, default=0)
-    total_power = models.CharField(max_length=100, default=0)
-
-class Washing_Machine(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-class Dryer(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-class Dishwasher(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-class Fridge(Smart_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-
-####################################################################################################
-####################################################################################################
-
-class Energy_Efficient_Devices(models.Model):
-
+class Fridges(models.Model):
 
     name = models.CharField(max_length=100)
-    #id = models.CharField(max_length=100)
+    ref_id = models.CharField(max_length=100)
     power = models.CharField(max_length=100, default=0)
-    duration = models.CharField(max_length=100, default=0)
-    #amount = models.CharField(max_length=100, default=1)
+    status = models.CharField(max_length=100, default=0)
+    #duration = models.CharField(max_length=100, default=0)
+    planned_status = models.CharField(max_length=100, default=0)
+    optimal_status = models.CharField(max_length=100, default=0)
 
     description = models.TextField()
     room = models.ForeignKey(Room)
-
 
     def __str__(self):
         return self.name + '-' + self.room.name
 
 ####################################################################################################
 ####################################################################################################
-##                                                                                                ##
-##                                  energy efficient devices                                      ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
 
-
-#class Lamps(Energy_Efficient_Devices):
-#
-#    pass
-#
-#class Television(Energy_Efficient_Devices):
-#
-#    pass
-#
-#class Coffee_Machine(Energy_Efficient_Devices):
-#
-#    pass
-#
-#class Oven(Energy_Efficient_Devices):
-#
-#    pass
-#
-#class Computer(Energy_Efficient_Devices):
-#
-#    pass
-#
-####################################################################################################
-####################################################################################################
-
-class Energy_Non_Efficient_Devices(models.Model):
+class Heating(models.Model):
 
     name = models.CharField(max_length=100)
-    #id=models.CharField(max_length=100)
+    ref_id = models.CharField(max_length=100)
     power = models.CharField(max_length=100, default=0)
-    duration = models.CharField(max_length=100, default=0)
-    #amount = models.CharField(max_length=100, default=1)
+    status = models.CharField(max_length=100, default=0)
+    #duration = models.CharField(max_length=100, default=0)
+    planned_status = models.CharField(max_length=100, default=0)
+    optimal_status = models.CharField(max_length=100, default=0)
 
     description = models.TextField()
     room = models.ForeignKey(Room)
@@ -177,148 +94,103 @@ class Energy_Non_Efficient_Devices(models.Model):
     def __str__(self):
         return self.name + '-' + self.room.name
 
-####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                  energy non efficient devices                                  ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
-
-#class Lamps(Energy_Non_Efficient_Devices):
-#
-#    pass
-#
-#class Television(Energy_Non_Efficient_Devices):
-#
-#   pass
-#
-#class Coffee_Machine(Energy_Non_Efficient_Devices):
-#
-#    pass
-#
-class oven(Energy_Non_Efficient_Devices):
-
-    temperature = models.CharField(max_length=100, default=0)
-
-#class Computer(Energy_Non_Efficient_Devices):
-#
-#    pass
-#
-####################################################################################################
-####################################################################################################
-
-####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                        energy storage                                          ##
-##                                                                                                ##
-##                                                                                                ##
 ####################################################################################################
 ####################################################################################################
 
 class Battery(models.Model):
-    name = models.CharField(max_length=100)
-    #id = models.CharField(max_length=100)
-    used_power_battery = models.CharField(max_length=100, default=0)
-    available_power_battery = models.CharField(max_length=100, default=0)
-
-    room = models.ForeignKey(Room)
-
-    def __str__(self):
-        return self.name + '-' + room.name
-
-
-
-
-
-#############################################################################
-#############################################################################
-
-
-class Sensors(models.Model):
 
     name = models.CharField(max_length=100)
-    value = models.CharField(max_length=100,default=0)
+    ref_id = models.CharField(max_length=100)
+    status = models.CharField(max_length=100, default=0)
+    power = models.CharField(max_length=100, default=0)
+    #duration = models.CharField(max_length=100, default=0)
+    planned_status = models.CharField(max_length=100, default=0)
+    optimal_status = models.CharField(max_length=100, default=0)
+    charged_status = models.CharField(max_length=100, default=0)
 
+    description = models.TextField()
     room = models.ForeignKey(Room)
 
     def __str__(self):
         return self.name + '-' + self.room.name
 
-####################################################################################################
-####################################################################################################
 
-class Energy_Sources(models.Model):
+class Stupid_Devices(models.Model):
 
     name = models.CharField(max_length=100)
+    ref_id = models.CharField(max_length=100)
     power = models.CharField(max_length=100, default=0)
-    duration = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
 
-    room_energy_sources = models.ForeignKey(Room)
-
-    neighbourhood = models.ForeignKey(Neighbourhood)
-
-    def __str__(self):
-        return self.name
-
-
-####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                        energy sources                                          ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
-
-class Solar_Pannels(Energy_Sources):
-
-    amount = models.CharField(max_length=100, default=0)
-
-class wind_turbine(Energy_Sources):
-
-    speed_wind = models.CharField(max_length=100, default=0)
-
-#class Power_Plant(Energy_Sources):
-#
-#    pass
-#
-####################################################################################################
-####################################################################################################
-
-####################################################################################################
-####################################################################################################
-##                                                                                                ##
-##                                          Total power                                           ##
-##                                                                                                ##
-##                                                                                                ##
-####################################################################################################
-####################################################################################################
-
-class Total_Power(models.Model):
-
-    total_used_power = models.CharField(max_length=100, default=0)
+    description = models.TextField()
+    room = models.ForeignKey(Room)
 
     def __str__(self):
-        return self.total_used_power
+        return self.name + '-' + self.room.name
 
-class Weather(models.Model):
+#all status
 
-    wind_speed = models.CharField(max_length=100, default=0)
-    temperature = models.CharField(max_length=100, default=0)
-    light_intensity = models.CharField(max_length=100, default=0)
+class Optimal_Status_Smart_Devices(models.Model):
 
-    neighbourhood = models.ForeignKey(Neighbourhood)
+    name = models.ForeignKey(Fridges)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
 
-    def __str__(self):
-        return self.wind_speed + '-' + self.temperature + '-' + self.light_intensity
+class Plan_Status_Fridges(models.Model):
+
+    name = models.ForeignKey(Fridges)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
+
+class Plan_Status_Heating(models.Model):
+
+    name = models.ForeignKey(Heating)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
 
 
-class TestBalkjes(models.Model):
-    volume = models.IntegerField()
-    def __str__(self):
-        return self.volume
+class Plan_Status_Battery(models.Model):
+
+    name = models.ForeignKey(Battery)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
+
+class Plan_Status_Stupid_devices(models.Model):
+
+    name = models.ForeignKey(Stupid_Devices)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
+
+#optimal status
+
+class Optimal_Status_Fridges(models.Model):
+
+    name = models.ForeignKey(Fridges)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
+
+class Optimal_Status_Heating(models.Model):
+
+    name = models.ForeignKey(Fridges)
+    hour = models.CharField(max_length=100, default=0)
+    status = models.CharField(max_length=100, default=0)
 
 
+
+
+
+
+
+
+
+
+####################################################################################################
+####################################################################################################
+
+####################################
+#demo
+####################################
+
+
+########################################################################################################################
+########################################################################################################################
