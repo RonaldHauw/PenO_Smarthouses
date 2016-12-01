@@ -3,12 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from django.template import loader
-from models import House,Room
+from models import *
 from helpfunctions import *
 from Communicatie import *
 import time
 from neighbourhood.models import Smart_Devices
-
 
 def status(request, appliance_id, status):
     app = Smart_Devices.objects.get(id=appliance_id)
@@ -17,24 +16,24 @@ def status(request, appliance_id, status):
     message = '%d01%d' % (room.shortcut, status)
     SendInformation('%s:8080' % house.ip, message)
 
-
-{
-    house_id: 1,
-    function: change_status,
-    target: (appliance, 1),
-    value: 100
-}
-#JSON
-{
-    house_id: 1,
-    [(function: change_status,
-    target: (appliance, 1),
-    value: 20),
-(function: change_status,
-           target: (appliance, 3),
-                   value: 100) # globaler afspraken maken en discussieren
-]
-}
+#
+# {
+#     house_id: 1,
+#     function: change_status,
+#     target: (appliance, 1),
+#     value: 100
+# }
+# #JSON
+# {
+#     house_id: 1,
+#     [(function: change_status,
+#     target: (appliance, 1),
+#     value: 20),
+# (function: change_status,
+#            target: (appliance, 3),
+#                    value: 100) # globaler afspraken maken en discussieren
+# ]
+# }
 
 
 def ledaan(request):
@@ -85,39 +84,39 @@ def centralcontrol(request):
 
 
 
-    while starttime - time.clock() < 100:
-        ###########
-        ###
-        ### naar de database kijken en zien welke apparaten er aan staan op dit moment of niet
-        ### indien een apparaat volgens de database op dit tijdstip een andere waarde moet hebben
-        ### stuurt deze een boodschap naar het betrokken apparaat
-        ###
-        ############
-
-        oldstatus = curstatus
-        curtime=time.clock()
-        curstatus = getstatus(curtime)
-        price = getprice(company)
-
-
-
-        for house in neighbourhood:
-            solar = getsolar(house)
-            wind  = getwind(house)
-
-            for room in house:
-                for device in room: ## in de database bij elk te optimaliseren device nog een attribuut geplande tijd? en huidige status##
-                    plan = getcurplan(device,time)
-                    if  plan != getcuruse(device): ## plan bevat op welke stand het apparaat moet aanstaan nu
-                        succes = sendmessage(getcode(device),plan)
-                        if not succes:
-                            displayalert('message not succeeded')
-                        else:
-                            displayalert('status van ' + sayhello(device)+ "aangepast naar" + str(curstatus[device]))
-
-        #### !!!!!! als een lamp momenteel aangepast moet worden moet dit in de database worden gedaan !!!!! #####
-        #### !!!!!! Dit programma gaat gewoon kijken naar het resultaat van de optimalistatie en in functie van de tijd
-        ###         De status van de betrokken apparaten aanpassen
+    # while starttime - time.clock() < 100:
+    #     ###########
+    #     ###
+    #     ### naar de database kijken en zien welke apparaten er aan staan op dit moment of niet
+    #     ### indien een apparaat volgens de database op dit tijdstip een andere waarde moet hebben
+    #     ### stuurt deze een boodschap naar het betrokken apparaat
+    #     ###
+    #     ############
+    #
+    #     oldstatus = curstatus
+    #     curtime=time.clock()
+    #     curstatus = getstatus(curtime)
+    #     price = getprice(company)
+    #
+    #
+    #
+    #     for house in neighbourhood:
+    #         solar = getsolar(house)
+    #         wind  = getwind(house)
+    #
+    #         for room in house:
+    #             for device in room: ## in de database bij elk te optimaliseren device nog een attribuut geplande tijd? en huidige status##
+    #                 plan = getcurplan(device,time)
+    #                 if  plan != getcuruse(device): ## plan bevat op welke stand het apparaat moet aanstaan nu
+    #                     succes = sendmessage(getcode(device),plan)
+    #                     if not succes:
+    #                         displayalert('message not succeeded')
+    #                     else:
+    #                         displayalert('status van ' + sayhello(device)+ "aangepast naar" + str(curstatus[device]))
+    #
+    #     #### !!!!!! als een lamp momenteel aangepast moet worden moet dit in de database worden gedaan !!!!! #####
+    #     #### !!!!!! Dit programma gaat gewoon kijken naar het resultaat van de optimalistatie en in functie van de tijd
+    #     ###         De status van de betrokken apparaten aanpassen
 
 
 
