@@ -10,17 +10,14 @@ from django.template.response import TemplateResponse
 def house(request,house_id):
 
     template = loader.get_template('neighbourhood/house.html')
-    context = {
-        'house': House.objects.get(ref_id=house_id)
-    }
+    # context = {'house': House.objects.get(ip_address=house_id)}
+    context = {'house': house_id}
     return TemplateResponse(request,template,context)
 
 def room(request,id):
 
     all_rooms = Room.objects.all()
-    context = {
-        'room': Room.objects.get(id=id)
-    }
+    context = {'room': Room.objects.get(id=id)}
     template = loader.get_template('neighbourhood/room.html')
    # return HttpResponse(template.render(context,request))
     return TemplateResponse(request,template,context)
