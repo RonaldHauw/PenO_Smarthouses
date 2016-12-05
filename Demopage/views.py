@@ -32,9 +32,8 @@ def user_homepage(request):
 
 
 def centralcontrol(request):
-    template = loader.get_template('indexcentralcontrol.html')
+    template = loader.get_template('neighbourhood/Centralcontrol.html')
     return HttpResponse(template.render(request))
-
 
 
 

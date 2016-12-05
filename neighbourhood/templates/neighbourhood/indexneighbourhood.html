@@ -52,30 +52,18 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href={%  url 'IndexNeighbourhood' %}>Home</a></li>
-                <li><a href="#about">Learn more</a></li>
-                <li><a href="#contact">Discover Yourself</a></li>
-<<<<<<< HEAD
+
+                <li><a href={% url 'ToCentralControl' %}>Automatisch dagritme</a></li>
                   <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Houses <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Interface <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                      <li><a href={% url 'House' 1 %}>House 1</a></li>
-                      <li><a href={% url 'House' 2 %}>House 2</a></li>
+                      <li><a href={% url 'House' 1 %}>House 1 - Smart Energy House</a></li>
+                      <li><a href={% url 'House' 2 %}>House 2 - Klassiek huis</a></li>
                       </ul>
-=======
-
-
                    </li>
->>>>>>> master
-                  <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Houses <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><a href={% url 'House' 1 %}>House 1</a></li>
-                      <li><a href={% url 'House' 2 %}>House 2</a></li>
 
-                      </li>
-                      </ul>
                   <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigate <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigatie <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                       <li><a href={% url 'Root' %}>Index</a></li>
                       <li class="active" ><a href={% url 'IndexNeighbourhood' %}>User</a></li>
@@ -103,31 +91,31 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="{% static "images/foto02.jpg" %}" alt="First slide">
+          <img id="Third_slide" class="first-slide" src="{% static "images/centralcontrol/fotoC01.jpg" %}" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Flexibiliteit</h1>
-              <p>Fossiele energiebronnen worden vervangen door hernieuwbare. Wind en zon zijn helaas niet altijd constant beschikbaar. Flexibiliteit van de vraag is nodig.</p>
+              <h1>Overzicht</h1>
+              <p>Zie overzichtelijk je gebruik, en wat je bespaard hebt.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer meer</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="{% static "images/foto04.jpg" %}" alt="Second slide">
+          <img id="Third_slide" class="second-slide" src="{% static "images/centralcontrol/fotoC04.png" %}" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Bewust energie consumeren</h1>
-              <p>Consumenten stimuleren energie te verbruiken wanneer deze meer voor handen is. Dit kan met een flexibele energieprijs.</p>
+              <h1>Controle</h1>
+              <p>Bedien alle apparaten in je huis.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer meer</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img id="Third_slide" class="third-slide" src="{%  static "images/foto06.jpg" %}" alt="Third slide">
+          <img id="Third_slide" class="third-slide" src="{%  static "images/centralcontrol/fotoC10.jpg" %}" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Slimme apparaten</h1>
-              <p>Sommige taken zoals de was kunnen gedaan worden in een zekere periode. Een netwerk van slimme apparaten kan zo zorgen voor een optimale inplanning van alle taken zonder in te boeten aan comfort.</p>
+              <h1>Automatisch</h1>
+              <p>Bekijk nu de voordelen van vraagzijdesturing. </p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer meer</a></p>
             </div>
           </div>

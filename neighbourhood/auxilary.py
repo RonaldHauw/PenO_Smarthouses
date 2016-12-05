@@ -73,7 +73,12 @@ def change_status(request, appliance_id=None, parametertochange=None, value=None
 #     template = loader.get_template('testinterface.html')
 #     return HttpResponse(template.render(request))
 
-
+def update_clock(curtime):
+    hour,minute = maketim()
+    html ="""
+    <html>
+    <
+    """
 
 
 def centralcontrol(request):
@@ -101,7 +106,7 @@ def centralcontrol(request):
 
 
         curtime=time.clock()
-
+        update_clock(curtime)
 
         price = getprice(curtime)
         solar = getsolar(curtime)

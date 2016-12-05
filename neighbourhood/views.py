@@ -40,7 +40,7 @@ def Root(request):
     return HttpResponse(template.render(request))
 
 def centralcontrol(request):
-    template = loader.get_template('indexcentralcontrol.html')
+    template = loader.get_template('neighbourhood/Centralcontrol.html')
     return HttpResponse(template.render(request))
 
 def Demo_homepage(request):
@@ -62,7 +62,7 @@ def Demo_homepage(request):
     return HttpResponse(template.render(request))
 
 def indexcentralcontrol(request):
-    template = loader.get_template('indexcentralcontrol.html')
+    template = loader.get_template('neighbourhood/Centralcontrol.html')
     return HttpResponse(template.render(request))
 
 def testinterface(request):
