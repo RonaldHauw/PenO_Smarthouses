@@ -7,6 +7,7 @@ from models import House,Room
 from helpfunctions import *
 from Communicatie import *
 import time
+import timeit
 from neighbourhood.models import Smart_Devices
 
 # def change_statusold(request, appliance_id, param_to_change, value):
@@ -80,14 +81,14 @@ def update_clock(curtime):
     <
     """
 
-
+tijd_hele_dag = 240
 def centralcontrol(request):
     """
     het programma dat de central control managet
     """
 
     ### continue loop die per stap kijkt naar de tijd, de inputs en dan de database en commando's bijhorden uitvoerd
-    starttime=time.clock()
+    starttime=timeit.default_timer()
 
     #### klaarzetten: status van alle apparaten is uit en initialiseren
     turnalloff()
@@ -95,7 +96,7 @@ def centralcontrol(request):
 
 
 
-    while starttime - time.clock() < 100:
+    while timeit.default_timer() - starttime < tijd_hele_dag:
         ###########
         ###
         ### naar de database kijken en zien welke apparaten er aan staan op dit moment of niet
@@ -105,7 +106,7 @@ def centralcontrol(request):
         ############
 
 
-        curtime=time.clock()
+        curtime=timeit.default_timer()
         update_clock(curtime)
 
         price = getprice(curtime)
