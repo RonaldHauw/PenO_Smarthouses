@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{% static "images/icoon.png" %}">
 
-    <title>Demo Smart Energy Houses Project</title>
+    <title>User Interface</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -33,10 +33,11 @@
   </head>
 <!-- NAVBAR
 ================================================== -->
+  <!-- NAVBAR
+================================================== -->
   <body>
     <div class="navbar-wrapper">
       <div class="container">
-
         <nav class="navbar navbar-inverse navbar-static-top">
           <div class="container">
             <div class="navbar-header">
@@ -46,81 +47,64 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href={% url 'Demo_homepage' %}>Demo</a>
+              <a class="navbar-brand"  href={%  url 'IndexNeighbourhood' %}>Interface</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li ><a href={% url 'Demo_homepage' %}>Home</a></li>
-                  <li class="active"><a href={% url 'Demo_uitleg' %}>Demo uitleg</a></li>
-                  <li><a href={% url 'Contact_page' %}>Contact</a></li>
+                <li ><a href={%  url 'IndexNeighbourhood' %}>Home</a></li>
+
+                <li class="active"><a href={% url 'ToCentralControl' %}>Automatisch dagritme</a></li>
+                  <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Interface <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href={% url 'House' 1 %}>House 1 - Smart Energy House</a></li>
+                      <li><a href={% url 'House' 2 %}>House 2 - Klassiek huis</a></li>
+                      </ul>
+                   </li>
 
                   <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Project <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Database - Interface - Central Control</a></li>
-                    <li><a href="#">Elektronica - Communicatie - Optimalisatie</a></li>
-                    <li><a href="#">Encryptie</a></li>
-                  </ul>
-                      </li>
-                  <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigate <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Navigatie <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                       <li><a href={% url 'Root' %}>Index</a></li>
-                      <li><a href={% url 'User_homepage' %}>Interface</a></li>
-                      <li class="active"><a href={% url 'Demo_homepage' %}>Demonstrator</a></li>
+                      <li class="active" ><a href={% url 'IndexNeighbourhood' %}>User</a></li>
+                      <li><a href={% url 'Demo' %}>Demonstrator</a></li>
 
+                </li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-
       </div>
     </div>
 
 
+<div class="container marketing">
 
-      <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+
+    <hr class="featurette-divider">
+
+
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Slimme-energie woningen </h2>
-            <h3 class="text-muted">Red het milieu!</h3>
-          <p class="lead"> Vandaag de dag zijn kern- en gascentrales de hoofdleveranciers van energie, maar zijn ook zeer schadelijk voor het milieu. De mensheid staat voor de uitdaging om alleen nog maar afhankelijkte zijn van hernieuwbare energie. Maar hernieuwbare bronnen zijn niet goed bestemd tegen pieken in het stroomnet. Slimme energie woningen proberen dit probleem aan te pakken.  </p>
+          <h2 class="featurette-heading">Start een dag <span class="text-muted">Klik op de knop hieronder</span></h2>
+          <p class="lead">De Central Control zal een voorbeeld dat laten lopen. De klok geeft aan hoe laat het is. Grafieken geven het verbruik aan van een energievriendelijk en niet energievriendelijk huis</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          {% block clock %} {% endblock %}
         </div>
+
       </div>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Vraagzijdesturing</h2>
-          <p class="lead"> Een slimme-energie <woning> </woning> is een woning die de energieconsumptie kan aansturen d.m.v. vraagzijdesturing. Het is een woning die zich informeert over de huidige energieproductie en zich hier op aanpast.  Hierbij is het gebruik van een Smart Grid aangewezen. Dit is een elektriciteitsnetwerk dat communicatie toelaat in twee richtingen. Zowel van leverancier naar gebruiker als van gebruiker naar leverancier. De uitwisseling van informatie tussen huis en leverancier of beheerder verloopt langs een beveiligde communicatielijn. </p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
+ <button type="button" class="btn btn-lg btn-success">Start</button>
 
 
-      <!-- /END THE FEATURETTES -->
 
 
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    </div><!-- /.container -->
+    </div>
 
 
     <!-- Bootstrap core JavaScript
