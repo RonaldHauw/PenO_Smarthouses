@@ -12,6 +12,9 @@ def house(request,house_id):
     template = loader.get_template('neighbourhood/house.html')
     context = {'house': House.objects.get(id=house_id)}
     #context = {'house': house_id}
+    context = {
+        'house': House.objects.get(id=house_id)
+    }
     return TemplateResponse(request,template,context)
 
 def room(request,id):
@@ -59,7 +62,7 @@ def indexcentralcontrol(request):
     return HttpResponse(template.render(request))
 
 def testinterface(request):
-    template = loader.get_template('testinterface.html')
+    template = loader.get_template('centralcontrol/testinterface.html')
     return HttpResponse(template.render(request))
 
 

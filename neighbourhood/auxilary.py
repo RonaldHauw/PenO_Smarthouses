@@ -22,22 +22,14 @@ from neighbourhood.models import Smart_Devices
 #     SendInformation('%s:8080' % house.ip, message) # eerst de standaard url die naar het huis verwijst, in die huis bevat de message
 #     # de room waarnaar het moet gaan
 
-def change_status(request, appliance_id=None, parametertochange=None, value=None):
+def change_status(request, house_ip, room_id, device_ref_id, value):
     """
     verandert de opgegeven parameter van een  apparaat in de gegeven value
     en stuurt dit door via informatie
     """
 
-    app = Smart_Devices.objects.get(id=appliance_id)
-    room = app.room
-    house = room.house
-    message = { 'function': change_status, ##### nog om te zetten naar sting , soort =input, output of pwm
-                'room': room.shortcut, #functionXchange_statusYroomXroom.shortcutYuniqueipX
-                'unique_ip': appliance_id,
-                'param_to_change':'status',
-                'new_value':value,
-                 'soort':'input'}
-    SendInformation('%s:8080' % house.ip, message) # eerst de standaard url die naar het huis verwijst, in die huis bevat de message
+    message = make_huge_string('change_status',room_id,device_ref_id,'status',value,'input','0')
+    SendInformation('%s:8080' % house_ip, message) # eerst de standaard url die naar het huis verwijst, in die huis bevat de message
     # de room waarnaar het moet gaan
 
 

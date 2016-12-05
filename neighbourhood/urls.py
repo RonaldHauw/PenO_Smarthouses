@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.conf.urls.static import static
 from . import views
+from auxilary import *
 import auxilary
 
 urlpatterns = [
@@ -14,7 +15,7 @@ urlpatterns = [
     url(r'^$',views.indexcentralcontrol, name='IndexCentralControl'),
     url(r'^testinterface',views.testinterface, name='testinterface'),
 
-    url(r'^status/(?P<appliance_id>[0-9]+)/(?P<parametertochange>[0-9]+)/(?P<value>[0-9]+)$', auxilary.change_status, name='status'),
+    url(r'^status/(?P<house_ip>\w+)/(?P<room_id>[0-9]+)/(?P<device_ref_id>\w+)/(?P<value>[0-9]+)$', auxilary.change_status, name='status'),
 
     url(r'^doityourself',views.handmatig, name='handmatig'),
     url(r'^optimalisated',views.vergelijking, name = 'vergelijking'),

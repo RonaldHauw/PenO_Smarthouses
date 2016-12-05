@@ -20,3 +20,41 @@ body {
     left: 25px;
     cursor: pointer;
 }
+
+#opschuiven{
+    margin-left: 0.5cm;
+}
+
+#vspace{
+    margin-top: 1cm;
+}
+#largevspace{
+    margin-top: 10cm;
+}
+#cont{
+    margin-left: 0.5cm;
+    margin-bottom: 1cm;
+    margin-top: 0.5cm;
+    margin-right: 1cm;
+}
+#afbeelding{
+    width: 30%;
+    margin: auto;
+    margin-bottom: 3%;
+    height: 20%;
+}
+#knop{
+    width: 16%;
+    height: 10%;
+
+
+}
+#container1{
+   margin: auto;
+    margin-top: 1cm;
+
+}
+
+#dumb{
+    margin-top: 10cm;
+}

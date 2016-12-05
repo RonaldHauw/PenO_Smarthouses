@@ -145,3 +145,14 @@ def getcuruse(device):
     """
     geeft de huidige stand van het apparaat terug
     """
+
+
+def make_huge_string(change_status, room, appliance_id, status, value, input, other_value):
+
+    return 'function' + 'X' + str(change_status) + 'Y' \
+           + 'room' + 'X' + str(room) + 'Y'  \
+            + 'uniqueid' + 'X' + str(appliance_id) + 'Y'  \
+            + 'paramtochange' + 'X' + str(status) +'Y'  \
+            + 'status' + 'X' + str(value) + 'Y'  \
+            + 'soort' + 'X' + str(input) + 'Y'  \
+            + 'paramnewvalue' + 'X' + str(other_value) + 'Y'

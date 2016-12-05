@@ -14,7 +14,9 @@ class Neighbourhood(models.Model):
 class House(models.Model):
 
     name = models.CharField(max_length=32)
+
     ip_address = models.CharField(max_length=32, default=0)
+
 
     neighbourhood = models.ForeignKey(Neighbourhood)
 
@@ -134,7 +136,7 @@ class Stupid_Devices(models.Model):
     def __str__(self):
         return self.name + '-' + self.room.name
 
-#energy
+
 class Energy(models.Model):
 
     time = models.CharField(max_length=100, default=0)
@@ -143,6 +145,16 @@ class Energy(models.Model):
 
     def __str__(self):
         return self.time + '-' + self.energy_price
+
+# class Energy(models.Model):
+#
+#     time = models.CharField(max_length=100, default=0)
+#     energy_price = models.CharField(max_length=100, default=0)
+#     used_energy = models.CharField(max_length=100, default=0)
+#
+#     def __str__(self):
+#         return self.time + '-' + self.energy_price
+
 
 
 

@@ -1,7 +1,7 @@
 {% extends "neighbourhood/usertemplate.html" %}
+{% load static %}
 
-
-{% block title %} Slimme energiewoningen | {{ house.name }}{% endblock %}
+{% block title %} Slimme energiewoningen | {{ house.name}}{% endblock %}
 
 {% block topheader %} Welkom bij Huis {{ house.id }}{% endblock %}
 
@@ -9,18 +9,15 @@
 {% block topheader_content %}
     Mijn kamers zijn:
     <ul>
+
+
 {#    <li> <a href="/neighbourhood/models"> models</a></li>#}
         {% for room in house.room_set.all %}
 {#    {% for room in House.objects.all %}#}
    <li><a href="{% url "Room" room.id %}">{{ room.name }}</a></li>
 {#            <h3> {{ room.name }}</h3>#}
     {% endfor %}
-    {% for room in house.room_set.all %}
-        {% for appliance in room.smart_device_set.all %}
-            <li>{{ appliance.name }}</li>
 
-        {% endfor %}
-    {% endfor %}
     </ul>
 {% endblock %}
 
@@ -184,3 +181,204 @@ $(document).ready(function() {
 
 </script>
 {%  endblock %}
+
+
+
+
+{% block showalldevices %}
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+    {% for room in house.room_set.all %}
+
+        <div id="cont" class="container">
+
+
+        <h3>{{ room.name }}</h3>
+
+        <ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+<h3 >Slimme Apparaten</h3>
+
+{% for device in room.smart_devices_set.all %}
+
+    <h4 id="vspace">{{ device.name }}</h4>
+
+
+
+
+
+
+
+    {% if device.name == "Wasmachine" %}
+        <img id="afbeelding"  src='{% static 'images/devices/wasmachine.jpg' %}' alt="Wasmachine">
+    {% endif %}
+ {% if device.name == "Laadpaal" %}
+        <img id="afbeelding"  src='{% static 'images/devices/laadpaal.jpg' %}' alt="Laadpaal">
+    {% endif %}
+
+
+
+
+
+
+
+<div id="cont1" class="row">
+ <button id="knop" type="button"  class="btn btn-sm btn-success"  href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet aan</button>
+    <button id="knop" type="button" class="btn btn-sm btn-danger" href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet uit</button>
+</div>
+{% endfor %}
+
+
+
+</div>
+</ul>
+        <ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+<h3>Koelkasten</h3>
+{% for device in room.fridges_set.all %}
+
+    <h4 id="vspace">{{ device.name }}</h4>
+
+
+    {% if device.name == "Koelkast" %}
+        <img id="afbeelding"  src='{% static 'images/devices/koelkast.jpg' %}' alt="Koelkast">
+    {% endif %}
+
+    {% if device.name == "Diepvriezer" %}
+        <img id="afbeelding"  src='{% static 'images/devices/diepvriezer.jpg' %}' alt="Diepvriezer">
+    {% endif %}
+
+
+ <div id="cont1" class="row">
+ <button id="knop" type="button"  class="btn btn-sm btn-success"  href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet aan</button>
+    <button id="knop" type="button" class="btn btn-sm btn-danger" href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet uit</button>
+</div>
+{% endfor %}
+
+
+
+</div>
+</ul>
+        <ul>
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+<h3>Batterijen</h3>
+{% for device in room.battery_set.all %}
+
+    <h4 id="vspace">{{ device.name }}</h4>
+
+ {% if device.name == "Battery" %}
+        <img id="afbeelding"  src='{% static 'images/devices/batterij.jpg' %}' alt="batterij">
+    {% endif %}
+
+
+
+
+
+    <div id="cont1" class="row">
+ <button id="knop" type="button"  class="btn btn-sm btn-success"  href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet aan</button>
+    <button id="knop" type="button" class="btn btn-sm btn-danger" href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet uit</button>
+</div>
+{% endfor %}
+
+
+
+</div>
+</ul>
+        <ul>
+
+
+
+
+
+
+
+
+
+<div id="dumb" class="row">
+<div class="col-md-4">
+<h3>Domme Apparaten</h3>
+{% for device in room.stupid_devices_set.all %}
+
+    <h4 id="vspace">{{ device.name }}</h4>
+
+
+{% if device.name == "Oven" %}
+        <img id="afbeelding"  src='{% static 'images/devices/oven.jpg' %}' alt="oven">
+
+    {% endif %}
+
+
+
+ <div id="cont1" class="row">
+ <button id="knop" type="button"  class="btn btn-sm btn-success"  href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet aan</button>
+    <button id="knop" type="button" class="btn btn-sm btn-danger" href="{% url "status" room.house.ip_address room.id device.ref_id '000' %}">Zet uit</button>
+</div>
+{% endfor %}
+
+</div>
+
+</div>
+</ul>
+        <ul>
+
+</div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
