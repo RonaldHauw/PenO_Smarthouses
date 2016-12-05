@@ -1,7 +1,3 @@
-
-
-
-
 {% extends "neighbourhood/usertemplate.html" %}
 
 
@@ -24,12 +20,14 @@
 
 
 {% block left_col %}
+
 <div class="col-md-4">
   <h2>Energieverbruik</h2>
   <canvas id="energy_house" width="400" height="400"></canvas>
 </div>
+
     <script>
-var ctx = document.getElementById("myChart");
+var ctx = document.getElementById("energy_house");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -66,28 +64,117 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-</script>
-  {% endblock %}
+
+    </script>
+{% endblock %}
+
+
+
 
 {% block middle_col %}
 
     <div class="col-md-4">
-        <h2>Optimalisatie</h2>
-        <p>Opsomming van alternatieven voor een efficiënter gebruik.</p>
-        <p><a class="btn btn-default" href="#" role="button">Meer details &raquo;</a></p>
+        <h2> Kosten per kwartier </h2>
+
+    <canvas id="secondPlot" width="200" height="200" ></canvas>
     </div>
 
 {% endblock %}
+
+
 
 
 {% block right_col %}
     <div class="col-md-4">
-        <h2>Besparing</h2>
-        <p>Hier komt een counter die vertelt hoeveel men door een geoptimaliseerd energiegebruik kan besparen.  </p>
-
-        <div id="tab-one">TAB ONE</div>
+        <h2>Totale kostprijs</h2>
+        <p>Hier komen twee counters die vertelen hoeveel men door een geoptimaliseerd energiegebruik kan besparen en hoeveel de totale kosten zijn.  </p>
 
 
         <p><a class="btn btn-default" href="#" role="button">Meer details &raquo;</a></p>
     </div>
 {% endblock %}
+
+{%  block custom_js %}
+
+  <script>
+      var max = 0;
+    var steps = 10;
+    var chartData = {}
+
+function respondCanvas() {
+    var c = $('#secondPlot');
+    var ctx = c.get(0).getContext("2d");
+    var container = c.parent();
+
+    var $container = $(container);
+
+    c.attr('width', $container.width()); //max width
+
+    c.attr('height', $container.height()); //max height
+
+    //Call a function to redraw other content (texts, images etc)
+    var chart = new Chart(c, {
+        type: 'line',
+        data: chartData,
+        options: {
+            scales: {
+                yAxes: [{
+                    type: 'linear',
+                    position: 'left'
+                }],
+                xAxes: [{
+                    type: 'time',
+                    time: {
+
+                        unit: 'hour'
+
+                    },
+                    position: 'bottom'
+                }]
+            },
+            title: {
+                display: true,
+                text: 'Energieverbruik per kwartier'
+            }
+        }
+    });
+    }
+
+var GetChartData = function () {
+    $.ajax({
+        url: '{%  url 'Chartdata' house.id %}',
+        method: 'GET',
+        dataType: 'json',
+        success: function (d) {
+           chartData = {
+                //labels: d.AxisLabels,
+                datasets: [
+                    {   label: 'verbruik',
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        data: d.timeseries
+                    }
+                ]
+            };
+
+            max = Math.max.apply(Math, d.timeseries);
+            steps = 10;
+
+            respondCanvas();
+        }
+    });
+};
+
+$(document).ready(function() {
+    $(window).resize(respondCanvas);
+
+    GetChartData();
+});
+
+
+</script>
+{%  endblock %}

@@ -18,11 +18,6 @@
 
 
 
-
-
-
-
-
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
@@ -64,6 +59,8 @@
             <ul class="nav navbar-nav">
                 <li><a href={% url 'House' 1 %}>Huis 1</a></li>
                 <li><a href={% url 'House' 2 %}>Huis 2</a></li>
+                <li><a href={% url 'vergelijking' %}>Vergelijking</a></li>
+
             </ul>
 
 
@@ -129,6 +126,8 @@
     <script href="{% static "js/bootstrap.min.js" %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script href="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+
+    {% block custom_js %}{%  endblock %}
 
 
   </body>
