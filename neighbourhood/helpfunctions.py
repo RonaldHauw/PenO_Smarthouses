@@ -1,5 +1,40 @@
 from models import *
 from auxilary import *
+import csv
+import math
+
+#######################################################################
+# CSV imports voor huidige omstandigheden
+# geven vanuit het csv bestand een lijst terug met daarin ...
+#######################################################################
+
+def read_prices():
+    list = []
+    with open('static/data/prijskwhperuur.csv') as datafile:
+        data = csv.reader(datafile, delimiter=';')
+        for row in data:
+            list.append(row[1])
+    return list
+
+def read_zonneintensiteit():
+    list = []
+    with open('static/data/zonneintensiteitwattpervierkantemeter.csv') as datafile:
+        data = csv.reader(datafile, delimiter=';')
+        for row in data:
+            list.append(row[1])
+    return list
+
+def read_windintensiteit():
+    list = []
+    with open('static/data/windinwijkmperseconde.csv') as datafile:
+        data = csv.reader(datafile, delimiter=';')
+        for row in data:
+            list.append(row[1])
+    return list
+
+
+
+
 
 def commit_change(appliance_id=None, value=None):
     """
@@ -77,21 +112,25 @@ def turnalloff():
 
 
 
-def getwind(house):
-    pass
+def getwind(time):
+    list = read_windintensiteit()
+    afgerondetijd = math.floor(time)  ### van 10:23 --> 10:00
+    return list[time]
 
 
 
-def getsolar(house):
-    pass
+
+def getsolar(time):
+    list = read_zonneintensiteit()
+    afgerondetijd = math.floor(time)  ### van 10:23 --> 10:00
+    return list[time]
 
 
 
 def getprice(time):
-    """
-    vragen aan hanspeter (csv)
-    """
-    pass
+    list = read_prices()
+    afgerondetijd = math.floor(time)  ### van 10:23 --> 10:00
+    return list[time]
 
 def generate_code(house,room,type,id,status):
     pass

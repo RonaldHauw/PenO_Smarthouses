@@ -7,6 +7,7 @@ from models import House,Room
 from helpfunctions import *
 from Communicatie import *
 import time
+import timeit
 from neighbourhood.models import Smart_Devices
 
 # def change_statusold(request, appliance_id, param_to_change, value):
@@ -73,16 +74,21 @@ def change_status(request, appliance_id=None, parametertochange=None, value=None
 #     template = loader.get_template('testinterface.html')
 #     return HttpResponse(template.render(request))
 
+def update_clock(curtime):
+    hour,minute = maketim()
+    html ="""
+    <html>
+    <
+    """
 
-
-
+tijd_hele_dag = 240
 def centralcontrol(request):
     """
     het programma dat de central control managet
     """
 
     ### continue loop die per stap kijkt naar de tijd, de inputs en dan de database en commando's bijhorden uitvoerd
-    starttime=time.clock()
+    starttime=timeit.default_timer()
 
     #### klaarzetten: status van alle apparaten is uit en initialiseren
     turnalloff()
@@ -90,7 +96,7 @@ def centralcontrol(request):
 
 
 
-    while starttime - time.clock() < 100:
+    while timeit.default_timer() - starttime < tijd_hele_dag:
         ###########
         ###
         ### naar de database kijken en zien welke apparaten er aan staan op dit moment of niet
@@ -100,8 +106,8 @@ def centralcontrol(request):
         ############
 
 
-        curtime=time.clock()
-
+        curtime=timeit.default_timer()
+        update_clock(curtime)
 
         price = getprice(curtime)
         solar = getsolar(curtime)
@@ -174,10 +180,35 @@ def centralcontrol(request):
 
 
 
+def time_tijd_hele_dag_naar_24(curtime):
+    fractie = curtime / tijd_hele_dag
+    return math.floor(fractie*24)
+
+def time_tijd_hele_dag_naar_96(curtime):
+    fractie =curtime/tijd_hele_dag
+    return math.floor(fractie*96)
+
+def print_time(curtime):
+
+
+    return time_tijd_hele_dag_naar_24(curtime)
 
 
 
 
+
+def give_time_given_96(number):
+    """
+    Deze functie geeft een waarde weer van 1 tem 96 dat overeenstemt met de tijd op een bepaalde dag.
+    Elk getal staat gelijgik aan een kwartier. vb 26 is het 26e kwartier van de dag
+    :param time: vb '15:46'
+    :return:
+    """
+
+    hour = int(number/4)
+    minute = (number%4)*15
+
+    return str(hour) + ':' + str(minute)
 
 
 

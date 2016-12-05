@@ -15,6 +15,12 @@
    <li><a href="{% url "Room" room.id %}">{{ room.name }}</a></li>
 {#            <h3> {{ room.name }}</h3>#}
     {% endfor %}
+    {% for room in house.room_set.all %}
+        {% for appliance in room.smart_device_set.all %}
+            <li>{{ appliance.name }}</li>
+
+        {% endfor %}
+    {% endfor %}
     </ul>
 {% endblock %}
 
