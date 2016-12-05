@@ -180,10 +180,35 @@ def centralcontrol(request):
 
 
 
+def time_tijd_hele_dag_naar_24(curtime):
+    fractie = curtime / tijd_hele_dag
+    return math.floor(fractie*24)
+
+def time_tijd_hele_dag_naar_96(curtime):
+    fractie =curtime/tijd_hele_dag
+    return math.floor(fractie*96)
+
+def print_time(curtime):
+
+
+    return time_tijd_hele_dag_naar_24(curtime)
 
 
 
 
+
+def give_time_given_96(number):
+    """
+    Deze functie geeft een waarde weer van 1 tem 96 dat overeenstemt met de tijd op een bepaalde dag.
+    Elk getal staat gelijgik aan een kwartier. vb 26 is het 26e kwartier van de dag
+    :param time: vb '15:46'
+    :return:
+    """
+
+    hour = int(number/4)
+    minute = (number%4)*15
+
+    return str(hour) + ':' + str(minute)
 
 
 
