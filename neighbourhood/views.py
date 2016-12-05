@@ -1,21 +1,17 @@
-# from neighbourhood import *
-# from index import *
-# from Demopage import *
-
-from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
 from django.template import loader
-from models import House,Room
+from models import *
+from django.shortcuts import render
 
 from django.template.response import TemplateResponse
+
+
 
 def house(request,house_id):
 
     template = loader.get_template('neighbourhood/house.html')
     context = {
-        'house': House.objects.get(id=house_id)
+        'house': House.objects.get(ref_id=house_id)
     }
     return TemplateResponse(request,template,context)
 
